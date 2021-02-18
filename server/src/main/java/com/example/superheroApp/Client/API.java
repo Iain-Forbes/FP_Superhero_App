@@ -23,7 +23,6 @@ public class API {
 
     public static Hero nodeToHero(JsonNode node) {
 
-        for () {
 
             String name = node.findPath("name").asText();
             System.out.println(node.findPath("name").asText());
@@ -40,8 +39,7 @@ public class API {
             int combat = powerNode.path("combat").asInt();
 
             return new Hero(name, slug, intelligence, strength, speed, durability, power, combat);
-        }
-        return null;
+
     }
 
 
