@@ -10,4 +10,7 @@ public class SuperheroAppApplication {
 		SpringApplication.run(SuperheroAppApplication.class, args);
 	}
 
+
 }
+
+
