@@ -1,7 +1,6 @@
 package com.example.superheroApp.controllers;
 
 import com.example.superheroApp.Models.Hero;
-import com.example.superheroApp.Models.User;
 import com.example.superheroApp.Repositories.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

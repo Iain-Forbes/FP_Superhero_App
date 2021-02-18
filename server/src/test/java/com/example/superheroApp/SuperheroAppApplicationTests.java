@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 
 @SpringBootTest
@@ -36,6 +37,8 @@ class SuperheroAppApplicationTests {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
