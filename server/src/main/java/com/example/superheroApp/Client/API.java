@@ -42,10 +42,6 @@ public class API {
 
     }
 
-
-
-
-
     public List<Hero> getAllHeroes() throws IOException {
 
         //API URL Source
@@ -65,7 +61,6 @@ public class API {
         //Set up root, mapper reads source URL
         JsonNode root = mapper.readTree(url);
         List<Hero> heroes = Stream.of(root)
-                .limit(10)
                 .map(API::nodeToHero)
                 .collect(Collectors.toList());
 
