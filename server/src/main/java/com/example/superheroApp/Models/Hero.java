@@ -11,8 +11,11 @@ public class Hero {
     private int durability;
     private int power;
     private int combat;
+    private String heroImg;
 
-    public Hero(String name, String slug, int intelligence, int strength, int speed, int durability, int power, int combat ) {
+
+
+    public Hero(String name, String slug, int intelligence, int strength, int speed, int durability, int power, int combat, String heroImg ) {
         this.name = name;
         this.slug = slug;
         this.intelligence = intelligence;
@@ -21,10 +24,19 @@ public class Hero {
         this.durability = durability;
         this.power = power;
         this.combat = combat;
+        this.heroImg = heroImg;
 
     }
 
     public Hero() {
+    }
+
+    public String getHeroImg() {
+        return heroImg;
+    }
+
+    public void setHeroImg(String heroImg) {
+        this.heroImg = heroImg;
     }
 
     public int getIntelligence() {

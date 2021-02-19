@@ -4,6 +4,7 @@ const HeroDispaly = ({heroes}) => {
 
     const heroList = heroes.map((hero, index) => {
 
+        
         return(
             <Hero
             name={hero.name}
@@ -14,10 +15,11 @@ const HeroDispaly = ({heroes}) => {
             durability={hero.durability}
             power={hero.power}
             combat={hero.combat}
+            img={hero.heroImg}
             key={index}
             />
         )
-
+        
     })
 
     return(
@@ -28,7 +30,7 @@ const HeroDispaly = ({heroes}) => {
             </ul>
         </div>
     )
-
+    
 }
 
 export default HeroDispaly

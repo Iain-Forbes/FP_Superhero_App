@@ -37,7 +37,10 @@ public class API {
             int power = powerNode.path("power").asInt();
             int combat = powerNode.path("combat").asInt();
 
-            return new Hero(name, slug, intelligence, strength, speed, durability, power, combat);
+            JsonNode imgNode = node.findPath("images");
+            String heroImg = node.findPath("sm").asText();
+
+            return new Hero(name, slug, intelligence, strength, speed, durability, power, combat, heroImg);
 
     }
 
