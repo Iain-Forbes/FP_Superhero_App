@@ -2,12 +2,10 @@
   text-align: center;
 }
 
-.Hero{
+#heroinfo{
   border: solid;
-  display:flex;
-  flex-flow: row wrap;
-
  
+
 }
 
 @media (prefers-reduced-motion: no-preference) {
