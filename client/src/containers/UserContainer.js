@@ -1,5 +1,4 @@
 import UserList from "../components/User/UserList"
-import Hero from "../components/Hero/Hero"
 import { useEffect } from 'react';
 import { useState } from 'react';
 

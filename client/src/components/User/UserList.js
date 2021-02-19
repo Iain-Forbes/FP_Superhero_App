@@ -5,9 +5,9 @@ const UserList = ({users}) => {
 
     const userNodes = users.map((user) => { 
 
-        return(<li key={user.id} className="component-item">
+        return(<ol key={user.id} className="component-item">
             <User user={user} />
-        </li>
+        </ol>
         )
 
     })

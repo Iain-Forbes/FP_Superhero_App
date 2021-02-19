@@ -5,7 +5,7 @@ const Hero = ({hero}) => {
         <div id="heroinfo">
             
             <h2>{hero.name}</h2>
-            <img src={hero.img} alt="Not Found" className="img-responsive"/>
+            <img src={hero.heroImg} alt="Not Found" className="img-responsive"/>
 
             <h3>Stats</h3>
 
@@ -15,6 +15,7 @@ const Hero = ({hero}) => {
             <p>Durabality: {hero.durability}</p>
             <p>Power : {hero.power}</p>
             <p>Combat :{hero.combat}</p>
+
             
             
         </div>
