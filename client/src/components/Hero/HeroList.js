@@ -7,6 +7,7 @@ const HeroList = ({heroes}) => {
         console.log(typeof hero.heroImg)
         return(
             <ul key={index}> 
+            
             <Hero
             name={hero.name}
             slug={hero.slug}

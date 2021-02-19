@@ -3,9 +3,9 @@ const Hero = ({name, slug, intelligence, strength, speed, durability, combat, po
 
     return(
         <div id="heroinfo">
-            <h2>Hero Details</h2>
             
-            <p>Name: {name}</p>
+            <h3>{name}</h3>
+            <img src={img} alt="boohoo" className="img-responsive"/>
 
             <h2>Stats</h2>
 
@@ -15,8 +15,7 @@ const Hero = ({name, slug, intelligence, strength, speed, durability, combat, po
             <p>Durabality: {durability}</p>
             <p>Power : {power}</p>
             <p>Combat :{combat}</p>
-            <p>Hero Image :</p>
-            <img src={img} alt="boohoo" className="img-responsive"/>
+            
             
         </div>
        

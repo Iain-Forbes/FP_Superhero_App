@@ -4,22 +4,24 @@
 
 #heroinfo{
   border: solid;
+  text-justify: auto;
+  text-align: center;
 }
 
-/* .heroes{
-display: flex;
-flex-flow: wrap row;
-} */
+.heroes{
+  /* display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto); */
+} 
 
 #heroList{
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  justify-content: space-evenly;
-  justify-content: space-between;
-  align-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+} 
   
-}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
