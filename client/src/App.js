@@ -2,6 +2,7 @@ import UserContainer from "./containers/UserContainer"
 import HeroContainer from "./containers/HeroContainer"
 import NavBar from "./components/NavBar/NavBar"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+
 import './App.css';
 
 function App() {
@@ -13,12 +14,12 @@ function App() {
     <NavBar/>
     </header>
 
-    <Router>
+    { <Router>
         <Switch>
           <Route exact path="/allheroes" component={HeroContainer} />
           <Route exact path="/" component={UserContainer} />
         </Switch>
-      </Router>
+      </Router> }
   </>
   )
 }

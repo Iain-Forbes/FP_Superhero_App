@@ -1,11 +1,12 @@
 import Hero from "./Hero"
 
-const HeroDispaly = ({heroes}) => {
+const HeroList = ({heroes}) => {
 
     const heroList = heroes.map((hero, index) => {
 
-        
+        console.log(typeof hero.heroImg)
         return(
+            <ul key={index}> 
             <Hero
             name={hero.name}
             slug={hero.slug}
@@ -16,8 +17,8 @@ const HeroDispaly = ({heroes}) => {
             power={hero.power}
             combat={hero.combat}
             img={hero.heroImg}
-            key={index}
             />
+            </ul>
         )
         
     })
@@ -32,4 +33,4 @@ const HeroDispaly = ({heroes}) => {
     
 }
 
-export default HeroDispaly
+export default HeroList
