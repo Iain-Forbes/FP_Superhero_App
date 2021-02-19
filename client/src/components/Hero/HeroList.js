@@ -24,7 +24,6 @@ const HeroDispaly = ({heroes}) => {
 
     return(
         <div>
-            <h2>Hero List</h2>
             <ul id="heroList">
                 {heroList}
             </ul>
