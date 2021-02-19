@@ -23,7 +23,7 @@ const HeroDispaly = ({heroes}) => {
     return(
         <div>
             <h2>Hero List</h2>
-            <ul id="userList">
+            <ul id="heroList">
                 {heroList}
             </ul>
         </div>
