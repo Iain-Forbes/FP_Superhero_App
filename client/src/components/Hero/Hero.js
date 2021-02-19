@@ -1,20 +1,20 @@
-const Hero = ({name, slug, intelligence, strength, speed, durability, combat, power, img}) => {
+const Hero = ({hero}) => {
 
 
     return(
         <div id="heroinfo">
             
-            <h3>{name}</h3>
-            <img src={img} alt="boohoo" className="img-responsive"/>
+            <h2>{hero.name}</h2>
+            <img src={hero.img} alt="Not Found" className="img-responsive"/>
 
-            <h2>Stats</h2>
+            <h3>Stats</h3>
 
-            <p>Inteliigence: {intelligence}</p>
-            <p>Strenght: {strength}</p>
-            <p>Speed: {speed}</p>
-            <p>Durabality: {durability}</p>
-            <p>Power : {power}</p>
-            <p>Combat :{combat}</p>
+            <p>Intelligence: {hero.intelligence}</p>
+            <p>Strenght: {hero.strength}</p>
+            <p>Speed: {hero.speed}</p>
+            <p>Durabality: {hero.durability}</p>
+            <p>Power : {hero.power}</p>
+            <p>Combat :{hero.combat}</p>
             
             
         </div>

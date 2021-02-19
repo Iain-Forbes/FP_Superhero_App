@@ -10,7 +10,7 @@ function App() {
   return (
     <>
   <header>
-    <h1>SuperShack</h1>
+    <h1 className="topheading">SuperShack</h1>
     <NavBar/>
     </header>
 

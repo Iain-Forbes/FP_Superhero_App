@@ -1,6 +1,23 @@
+.topheading{
+  text-align: center;
+}
+
 .App {
   text-align: center;
 }
+
+#nav{
+  background-color: beige;
+  overflow: hidden;
+  display: grid;
+  grid-template: 50px / 1fr 1fr 1fr 1fr;
+  align-items: center
+}
+.HanVHeader{
+  text-align: center;
+}
+
+
 
 #heroinfo{
   border: solid;

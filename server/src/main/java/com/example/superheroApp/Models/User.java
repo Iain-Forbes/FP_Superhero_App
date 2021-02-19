@@ -1,8 +1,8 @@
 package com.example.superheroApp.Models;
 
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class User {
 
@@ -10,9 +10,9 @@ public class User {
     private String name;
     private List<Hero> heroes;
 
-    public User(String name) {
+    public User(String name, List<Hero> heroes) {
         this.name = name;
-        this.heroes = new ArrayList<>();
+        this.heroes = heroes;
     }
 
     public User() {
@@ -40,5 +40,9 @@ public class User {
 
     public void setHeroes(List<Hero> heroes) {
         this.heroes = heroes;
+    }
+
+    public void addHero(Hero hero){
+        this.heroes.add(hero);
     }
 }

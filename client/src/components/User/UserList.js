@@ -1,28 +1,23 @@
 import User from "./User"
 
-const UserDispaly = ({users}) => {
 
-    const userList = users.map((user, index) => {
+const UserList = ({users}) => {
 
-        return(
-            <User
-                name={user.name}
-                heroes={user.heroes}
-                key={index}
-            />
+    const userNodes = users.map((user) => { 
+
+        return(<li key={user.id} className="component-item">
+            <User user={user} />
+        </li>
         )
 
     })
 
     return(
-        <div>
-            <h2>User List</h2>
             <ul id="userList">
-                {userList}
+                {userNodes}
             </ul>
-        </div>
     )
 
 }
 
-export default UserDispaly
+export default UserList

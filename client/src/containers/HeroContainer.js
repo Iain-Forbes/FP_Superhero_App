@@ -2,17 +2,16 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import HeroList from "../components/Hero/HeroList"
 
-const HeroContainer = ({}) => {
+const HeroContainer = () => {
 
     const [heroes, setHeroes] = useState([]);
+    const URL = 'Http://localhost:8081/heroes'
+
 
     const fetchHeroes = () => {
-        console.log("Loading Heroes...")
-        const heroesUrl = 'Http://localhost:8081/heroes'
-    
-        fetch(heroesUrl)
+        fetch(URL)
         .then(res => res.json())
-        .then(data => setHeroes(data))
+        .then(data => setHeroes(data));
       }
 
       useEffect(() => {
@@ -21,7 +20,7 @@ const HeroContainer = ({}) => {
 
     return(
         <div>
-            <h1>Heroes and Villains</h1>
+            <h1 className="HanVHeader">Heroes and Villains</h1>
             <div className="heroes">
                 <HeroList heroes={heroes}/>
             </div>

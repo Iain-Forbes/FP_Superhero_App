@@ -1,5 +1,6 @@
 package com.example.superheroApp.Repositories;
 
+import com.example.superheroApp.Models.Hero;
 import com.example.superheroApp.Models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.DeleteQuery;
