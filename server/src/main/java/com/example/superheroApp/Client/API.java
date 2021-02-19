@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @Component
 
@@ -25,11 +26,9 @@ public class API {
 
 
             String name = node.findPath("name").asText();
-            System.out.println(node.findPath("name").asText());
             String slug = node.findPath("slug").asText();
 
             JsonNode powerNode = node.findPath("powerstats");
-            System.out.println(node.findPath("powerstats"));
 
             int intelligence = powerNode.findValue("intelligence").asInt();
             int strength = powerNode.path("strength").asInt();
@@ -60,7 +59,8 @@ public class API {
 
         //Set up root, mapper reads source URL
         JsonNode root = mapper.readTree(url);
-        List<Hero> heroes = Stream.of(root)
+//
+       List<Hero> heroes = StreamSupport.stream(root.spliterator(), false)
                 .map(API::nodeToHero)
                 .collect(Collectors.toList());
 
