@@ -1,8 +1,9 @@
-const User = ({user, hero}) => {
+const User = ({user}) => {
 
     return(
         <div id="userinfo">
-            <p>{user.name}</p>
+            <h2>{user.name}</h2>
+           
             
 
         </div>

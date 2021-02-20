@@ -21,12 +21,14 @@ const UserContainer = () => {
     }, [])
 
     return(
+        <>
         <div>
             <h1>Users</h1>
             <div className="users">
                 <UserList users={users}/>
             </div>
         </div>
+        </>
     )
 
 }
