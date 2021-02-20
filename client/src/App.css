@@ -17,6 +17,10 @@
   text-align: center;
 }
 
+.Userherolist{
+  display: inline;
+  border: solid;
+}
 
 
 #heroinfo{
