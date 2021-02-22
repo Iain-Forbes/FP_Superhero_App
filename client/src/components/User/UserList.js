@@ -9,7 +9,7 @@ const UserList = ({users}) => {
         return(    
         <ol key={user.id} className="component-item">
             <div className="component">
-            <User user={user} />
+            <User user={user}/>
             </div>
         </ol>
         )

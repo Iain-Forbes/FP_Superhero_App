@@ -1,4 +1,4 @@
-const baseURL = 'http://localhost:3000/users/'
+const baseURL = 'http://localhost:8081/users/'
 
 export const getUsers = () => {
    return fetch(baseURL)
@@ -20,33 +20,3 @@ export const deleteUser = (id) =>{
         method: "DELETE"
     })
 }
-
-// class Request {
-
-// const url =
-
-//   get(url) {
-//     return fetch(url)
-//     .then((res) => res.json());
-//   }
-
-//     delete(url) {
-//       return fetch(url, {
-//         method: "DELETE",
-//       })
-//     }
-
-//     post(payload) {
-//       return fetch(url, {
-//         method: "POST",
-//         body: JSON.stringify(payload),
-//         headers: { 'Content-Type': 'application/json' },
-//     })
-//     .then(res => res.json())
-//     }
-
-
-
-// }
-
-// export default Request;

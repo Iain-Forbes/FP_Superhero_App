@@ -1,15 +1,13 @@
 package com.example.superheroApp.controllers;
 
+import com.example.superheroApp.Models.Hero;
 import com.example.superheroApp.Models.User;
 import com.example.superheroApp.Repositories.HeroRepository;
 import com.example.superheroApp.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,4 +32,10 @@ public class UserController {
             userRepository.deleteByid(id);
             return new ResponseEntity<>(null, HttpStatus.OK);
         }
+
+    @PostMapping(value ="/users")
+    public ResponseEntity<User> postUser(@RequestBody User user) {
+        userRepository.save(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
     }

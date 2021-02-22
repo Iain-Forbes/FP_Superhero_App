@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import UserDetail from "../components/User/UserDetail"
-import CreateUser from "../components/User/UserForm";
+import UserForm from '../components/User/UserForm'
 
 const UserContainer = () => {
 
@@ -46,6 +46,7 @@ const UserContainer = () => {
 
     return(
         <>
+        <UserForm addUser={addUser}/>
         <Switch>
     
         <Route exact path="/users/:id" render={(props) => 
@@ -55,14 +56,14 @@ const UserContainer = () => {
         
         return <UserDetail user={user}
         onDelete={handleDelete}
+        addUser={addUser}
             />
             }}/>
+
             
         <Route render = {() =>{
-            return <UserList users={users}/>
-            
+            return <UserList users={users} />
         }} />
-    
         </Switch>
         </>
     )

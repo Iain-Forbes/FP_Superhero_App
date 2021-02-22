@@ -1,7 +1,8 @@
 import {useState} from "react";
 import { postUser } from "../../helpers/requests";
 
-const CreateUser = ({addUser}) => {
+
+const UserForm = ({name}) => {
     const [formData, setFormData] = useState ({})
     const onChange = (e) => {
         formData[e.target.id] = e.target.value;
@@ -13,7 +14,7 @@ const CreateUser = ({addUser}) => {
         e.preventDefault();
         postUser(formData)
         .then(() => {
-            addUser(formData)
+            postUser(formData)
         })
     } 
 
@@ -26,7 +27,7 @@ const CreateUser = ({addUser}) => {
         </h3>
         <div>
             <label for="name">Name:</label>
-            <input onChange={onChange} type="text" id="name" required/>
+            <input onChange={onChange} type="text" id="name" value={name} required/>
         </div>
         <input type="submit" vaule="save" id="save"/>
         </form>
@@ -35,4 +36,4 @@ const CreateUser = ({addUser}) => {
 
 }
 
-export default CreateUser
+export default UserForm
