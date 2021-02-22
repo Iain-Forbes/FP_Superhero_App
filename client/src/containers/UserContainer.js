@@ -1,6 +1,7 @@
 import UserList from "../components/User/UserList"
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Request from '../helpers/requests.js'
 
 const UserContainer = () => {
 
@@ -20,12 +21,22 @@ const UserContainer = () => {
       fetchUsers()
     }, [])
 
+    const handleDelete = function(id){
+        const request = new Request();
+        const url = "/users/" + id
+        request.delete(url)
+        .then(() => window.location = "/users")
+      }
+
+
+
     return(
         <>
         <div>
             <h1>Users</h1>
             <div className="users">
-                <UserList users={users}/>
+                <UserList users={users}
+                    onDelete={handleDelete}/>
             </div>
         </div>
         </>

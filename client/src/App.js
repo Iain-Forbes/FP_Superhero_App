@@ -18,6 +18,7 @@ function App() {
         <Switch>
           <Route exact path="/allheroes" component={HeroContainer} />
           <Route exact path="/" component={UserContainer} />
+          <Route exact path="/allusers" component={UserContainer} />
         </Switch>
       </Router> }
   </>

@@ -5,9 +5,7 @@ import com.example.superheroApp.Repositories.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +28,18 @@ public class HeroController {
     @GetMapping(value = "/heroes/slug/{slug}")
     public ResponseEntity<List<Hero>> getHeroBySlug(@PathVariable String slug){
         return (new ResponseEntity<>(heroRepository.findByName(slug), HttpStatus.OK));
+    }
+
+    @PostMapping (value ="/heroes")
+    public ResponseEntity<Hero> postHero(@RequestBody Hero hero) {
+        heroRepository.save(hero);
+        return new ResponseEntity<>(hero, HttpStatus.CREATED);
+    }
+
+    @PatchMapping(value = "heroes/{id}")
+    public ResponseEntity<Hero> updateHero(@RequestBody  Hero hero) {
+        heroRepository.save(hero);
+        return new ResponseEntity<>(hero, HttpStatus.OK);
     }
 
 }
