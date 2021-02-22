@@ -5,7 +5,8 @@ const HeroList = ({heroes}) => {
     const heroNodes = heroes.map((hero) => {
 
             return(<ol key={hero.id} className="component-item">
-                <Hero hero={hero} />
+                <Hero hero={hero}/>
+                
             </ol>
             )
     

@@ -1,13 +1,16 @@
 import UserList from "../components/User/UserList"
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Request from '../helpers/requests.js'
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import UserDetail from "../components/User/UserDetail"
+import CreateUser from "../components/User/UserForm";
 
 const UserContainer = () => {
 
     const [users, setUsers] = useState([]);
 
     const fetchUsers = () => {
+    
       console.log("Loading Users...")
       const usersUrl = 'Http://localhost:8081/users'
   
@@ -21,24 +24,46 @@ const UserContainer = () => {
       fetchUsers()
     }, [])
 
-    const handleDelete = function(id){
-        const request = new Request();
-        const url = "/users/" + id
-        request.delete(url)
-        .then(() => window.location = "/users")
+    const findUserById = function(id){
+        return users.find((user) => {
+          return user.id === (id);
+        })
       }
 
+    
+    const handleDelete = function(id){
+            const temp = users.map(user => user);
+            const userToDel = temp.map(user => user._id).indexOf(id);
+            temp.splice(userToDel, 1);
+            setUsers(temp);
+          }
 
+    const addUser = (user) =>{
+        const temp = users.map(user => user);
+        temp.push(user)
+        setUsers(temp)
+    }
 
     return(
         <>
-        <div>
-            <h1>Users</h1>
-            <div className="users">
-                <UserList users={users}
-                    onDelete={handleDelete}/>
-            </div>
-        </div>
+        <Switch>
+    
+        <Route exact path="/users/:id" render={(props) => 
+        {
+        const id = props.match.params.id;
+        const user = findUserById(id);
+        
+        return <UserDetail user={user}
+        onDelete={handleDelete}
+            />
+            }}/>
+            
+        <Route render = {() =>{
+            return <UserList users={users}/>
+            
+        }} />
+    
+        </Switch>
         </>
     )
 

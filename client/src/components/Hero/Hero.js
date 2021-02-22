@@ -15,7 +15,7 @@ const Hero = ({hero}) => {
             <p>Durabality: {hero.durability}</p>
             <p>Power : {hero.power}</p>
             <p>Combat :{hero.combat}</p>
-
+            <button> Recruit {hero.name} ✅ </button>
             
             
         </div>
