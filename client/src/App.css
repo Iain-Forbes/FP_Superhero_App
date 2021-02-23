@@ -75,6 +75,16 @@
   display: block;
  }
 
+ .heroComponent{
+  display: grid;
+  grid-template-columns: repeat(2);
+  gap: 15px;  
+ }
+
+.bio{ 
+  font-size: large;
+}
+
 
   
 

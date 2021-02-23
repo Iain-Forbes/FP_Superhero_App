@@ -11,21 +11,21 @@ const Hero = ({hero}) => {
   
         return(
             <>
-            <Card style={{ width: '16rem' }}>
+            <Card style={{ width: '17rem' }}>
             <Card.Img variant="top" src={hero.heroImg}/>
 
             <Card.Body>
             <Card.Title className ="heroCardName">
-                <h2>{hero.name}</h2>
+                {hero.name}
             </Card.Title>
 
             <Card.Text className="heroCardStats">
-                    <p>Intelligence: {hero.intelligence}</p>
-                    <p>Strength: {hero.strength}</p>
-                    <p>Speed: {hero.speed}</p>
-                    <p>Durabality: {hero.durability}</p>
-                    <p>Power : {hero.power}</p> 
-                    <p>Combat :{hero.combat}</p>
+            <li className="list-group-item">Intelligence: {hero.intelligence}</li>
+            <li className="list-group-item">Strength: {hero.strength}</li>
+            <li className="list-group-item">Speed: {hero.speed}</li>
+            <li className="list-group-item">Durabality: {hero.durability}</li>
+            <li className="list-group-item">Power : {hero.power}</li>
+            <li className="list-group-item">Combat :{hero.combat}</li>
             </Card.Text>
             <div className="heroCardButtons">
                 <Button variant="btn btn-success"  > Recruit </Button> 
