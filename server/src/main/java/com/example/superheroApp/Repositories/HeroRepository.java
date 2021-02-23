@@ -11,5 +11,6 @@ public interface HeroRepository extends MongoRepository<Hero, String> {
 
     List<Hero> findByName(String name);
     List<Hero> findBySlug(String slug);
+    List<Hero> findByAlignment(String alignment);
 
 }

@@ -16,18 +16,25 @@ public class HeroController {
     HeroRepository heroRepository;
 
     @GetMapping(value = "/heroes")
-    public ResponseEntity<List<Hero>> getAllHeroesBD(){
+    public ResponseEntity<List<Hero>> getAllHeroesBD(
+            @RequestParam(name="name", required = false) String name,
+            @RequestParam(name="slug", required = false) String slug,
+            @RequestParam(name="alignment", required = false) String alignment
+    ) {
+        if (name != null) {
+           return new ResponseEntity<> (heroRepository.findByName(name), HttpStatus.OK);
+        }
+        {
+            if (slug != null) {
+                return new ResponseEntity<>(heroRepository.findBySlug(slug), HttpStatus.OK);
+            }
+        }
+        {
+            if (alignment != null) {
+                return new ResponseEntity<>(heroRepository.findByAlignment(alignment), HttpStatus.OK);
+            }
+        }
         return new ResponseEntity<>(heroRepository.findAll(), HttpStatus.OK);
-    }
-
-    @GetMapping(value = "/heroes/name/{name}")
-    public ResponseEntity<List<Hero>> getHeroByName(@PathVariable String name){
-        return (new ResponseEntity<>(heroRepository.findByName(name), HttpStatus.OK));
-    }
-
-    @GetMapping(value = "/heroes/slug/{slug}")
-    public ResponseEntity<List<Hero>> getHeroBySlug(@PathVariable String slug){
-        return (new ResponseEntity<>(heroRepository.findByName(slug), HttpStatus.OK));
     }
 
     @PostMapping (value ="/heroes")

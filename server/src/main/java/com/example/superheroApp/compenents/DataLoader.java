@@ -35,9 +35,9 @@ public class DataLoader implements ApplicationRunner {
                 e.printStackTrace();
             }
 
-                Hero strong = new Hero("Mr Strong", "1-mr-strong", 2, 50, 32, 100, 100, 100, "https://static.wikia.nocookie.net/mrmen/images/6/60/Strong3.png/revision/latest/scale-to-width-down/340?cb=20181002021322", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder" , "placeholder" , "placeholder");
-                Hero weak = new Hero("Mr Weak", "2-mr-weak", 2, 50, 32, 100, 100, 100, "https://static.wikia.nocookie.net/mrmen/images/6/60/Strong3.png/revision/latest/scale-to-width-down/340?cb=20181002021322", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder" , "placeholder" , "placeholder");
-                User steve = new User("Steve", List.of(strong, weak));
+                Hero strong = new Hero("Mr Strong", "1-mr-strong", 0, 100, 32, 100, 100, 100, "https://static.wikia.nocookie.net/mrmen/images/6/60/Strong3.png/revision/latest/scale-to-width-down/340?cb=20181002021322", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder" , "placeholder" , "placeholder");
+                Hero weak = new Hero("Mr Weak", "2-mr-weak", 100, 0, 32, 100, 100, 100, "https://static.wikia.nocookie.net/mrmen/images/6/60/Strong3.png/revision/latest/scale-to-width-down/340?cb=20181002021322", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder", "placeholder" , "placeholder" , "placeholder");
+                User steve = new User("Steve", "Stu@Cue.hue", List.of(strong, weak));
 
                 ;
                 heroRepository.save(strong);

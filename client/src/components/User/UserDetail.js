@@ -23,6 +23,7 @@ const UserDetail = ({user, onDelete}) => {
 return(
     <div className ="userComponent">
         <User user={user}/>
+        <p>{user.email}</p>
         <p>Hereos:</p>
         <ul>
             {userHeroes}

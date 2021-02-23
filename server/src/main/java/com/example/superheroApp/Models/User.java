@@ -1,22 +1,41 @@
 package com.example.superheroApp.Models;
 
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class User {
 
     private String id;
-    private String name;
+    private String userName;
+    private String email;
     private List<Hero> heroes;
 
-    public User(String name, List<Hero> heroes) {
-        this.name = name;
+    public User(String userName, String email, List<Hero> heroes) {
+        this.userName = userName;
+        this.email = email;
         this.heroes = heroes;
     }
 
     public User() {
     }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
 
     public String getId() {
         return id;
@@ -26,13 +45,6 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public List<Hero> getHeroes() {
         return heroes;

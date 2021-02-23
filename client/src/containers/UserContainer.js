@@ -1,4 +1,5 @@
 import UserList from "../components/User/UserList"
+
 import { useEffect } from 'react';
 import { useState } from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
@@ -6,7 +7,7 @@ import UserDetail from "../components/User/UserDetail"
 import UserForm from '../components/User/UserForm'
 import {deleteUser as delUserFromAPI} from "../helpers/requests"
 
-const UserContainer = () => {
+const UserContainer = ({heroes}) => {
 
     const [users, setUsers] = useState([]);
 
@@ -73,6 +74,8 @@ const UserContainer = () => {
                 <UserList users={users} />
                 <UserForm addUser={addUser}/>
             </div>
+
+      
            
             )}} />
         </Switch>

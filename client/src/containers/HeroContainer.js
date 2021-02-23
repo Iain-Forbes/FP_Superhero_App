@@ -4,6 +4,7 @@ import HeroList from "../components/Hero/HeroList"
 import HeroDetail from "../components/Hero/HeroDetail"
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Pagination  from "../components/Pagination/Pagination"
+import UserForm from '../components/User/UserForm';
 
 const HeroContainer = () => {
 
@@ -42,11 +43,13 @@ const HeroContainer = () => {
        
             <Switch>
                  <>
+                 
                 <Route exact path ="/heroes/:id" render={(props) =>{
                     const id = props.match.params.id;
                     const hero = findHeroByID(id)
 
                     return <HeroDetail hero={hero}/>
+                   
                 }}/>
 
                 <Route exact path="/heroes" render = {() =>{
@@ -59,6 +62,7 @@ const HeroContainer = () => {
                     </div>
                     </div>
                     )}}/>
+                    
             </>     
             </Switch>
             

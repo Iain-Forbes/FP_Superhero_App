@@ -16,16 +16,16 @@ const Hero = ({hero}) => {
 
             <Card.Body>
             <Card.Title className ="heroCardName">
-                {hero.name}
+                <h2>{hero.name}</h2>
             </Card.Title>
 
             <Card.Text className="heroCardStats">
-            <li className="list-group-item">Intelligence: {hero.intelligence}</li>
-            <li className="list-group-item">Strength: {hero.strength}</li>
-            <li className="list-group-item">Speed: {hero.speed}</li>
-            <li className="list-group-item">Durabality: {hero.durability}</li>
-            <li className="list-group-item">Power : {hero.power}</li>
-            <li className="list-group-item">Combat :{hero.combat}</li>
+            <li className="list-group-item"><b>Intelligence</b> {hero.intelligence}</li>
+            <li className="list-group-item"><b>Strength:</b> {hero.strength}</li>
+            <li className="list-group-item"><b>Speed:</b><br></br> {hero.speed}</li>
+            <li className="list-group-item"><b>Durabality:</b> {hero.durability}</li>
+            <li className="list-group-item"><b>Power:</b><br></br>{hero.power}</li>
+            <li className="list-group-item"><b>Combat:</b><br></br>{hero.combat}</li>
             </Card.Text>
             <div className="heroCardButtons">
                 <Button variant="btn btn-success"  > Recruit </Button> 

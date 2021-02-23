@@ -7,7 +7,7 @@ const User = ({user, userHeroes}) => {
     return(
         <>
             <Link to = {url} className="name">
-            <h2>{user.name}</h2>
+            <h2>{user.userName}</h2>
             </Link>   
             <p>{userHeroes}</p> 
         </>

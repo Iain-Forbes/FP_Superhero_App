@@ -2,21 +2,34 @@ import {useState} from "react";
 import { postUser } from "../../helpers/requests";
 
 
-const UserForm = ({name}) => {
-    const [formData, setFormData] = useState ({})
+const UserForm = ({heroes}) => {
+    const [stateUser, setStateUser] = useState (
+        {
+        userName: "",
+        email: "",
+        heroes: [],
+        }
+    )
     const onChange = (e) => {
-        formData[e.target.id] = e.target.value;
-        setFormData(formData)
+        let propertyName = e.target.name;
+        let copiedUser = {...stateUser}
+        copiedUser[propertyName] = e.target.vaule;
+        setStateUser(copiedUser)
     }
 
 
     const onSubmit = (e) => {
         e.preventDefault();
-        postUser(formData)
-        .then(() => {
-            postUser(formData)
-        })
+        postUser(stateUser);
     } 
+
+
+    // const heroOptions = heroes.map((hero) => {
+
+    //     return <option key={hero.id} value={hero.id}>
+    //     {hero.name}
+    //     </option>
+    // })
 
 
     return(
@@ -25,11 +38,17 @@ const UserForm = ({name}) => {
         <h3>
             Add New User
         </h3>
-        <div>
-            <label for="name">Name:</label>
-            <input onChange={onChange} type="text" id="name" value={name} required/>
-        </div>
-        <input type="submit" vaule="save" id="save"/>
+        <label for="userName">Username:</label>
+        <input type="text" id="userName" onChange={onChange}  value={stateUser.userName} required/>
+    
+        <label for="email">Email:</label>
+        <input  type="text" id="email" onChange={onChange} value={stateUser.email} required/>
+{/* 
+        <select name="Hero"  defaultValue="select-hero">
+        <option disabled value='select-hero'>Select a Starter Hero</option>
+            {heroOptions}
+        </select>  
+        <input type="submit" vaule="save" id="save"/> */}
         </form>
         </>
     )
