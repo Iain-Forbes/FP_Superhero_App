@@ -10,7 +10,7 @@ const UserDetail = ({user, onDelete}) => {
     }
 
 
-    const userHeroes = user.heroes.map((userHeroes, index)=>{
+    const userHeroes = user.heroes?.map((userHeroes, index)=>{
         return <li key={index} className="userHeroList">
                 {userHeroes.name}
                 <img src={userHeroes.heroImg} width="100" height="100"/>
