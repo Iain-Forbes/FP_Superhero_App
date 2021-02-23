@@ -13,9 +13,8 @@ import java.net.URL;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
 @Component
@@ -37,12 +36,30 @@ public class API {
             int power = powerNode.path("power").asInt();
             int combat = powerNode.path("combat").asInt();
 
-            JsonNode imgNode = node.findPath("images");
             String heroImg = node.findPath("sm").asText();
 
-            return new Hero(name, slug, intelligence, strength, speed, durability, power, combat, heroImg);
+            JsonNode appearanceNode = node.findPath("appearance");
+            String gender = appearanceNode.path("gender").asText();
+            String race = appearanceNode.path("race").asText();
+
+            JsonNode bioNode = node.findPath("biography");
+            String fullName = bioNode.path("fullName").asText();
+            String alterEgo = bioNode.path("alterEgos").asText();
+            String placeOfBirth = bioNode.path("placeOfBirth").asText();
+            String firstAppearance = bioNode.path("firstAppearance").asText();
+            String alignment = bioNode.path("alignment").asText();
+
+            JsonNode workNode = node.findPath("work");
+            String occupation = workNode.path("occupation").asText();
+
+            JsonNode connectNode = node.findPath("connections");
+            String groupAffiliation = connectNode.path("groupAffiliation").asText();
+
+            return new Hero(name, slug, intelligence, strength, speed, durability, power, combat, heroImg, fullName, alterEgo, gender, race, placeOfBirth, firstAppearance, alignment, occupation, groupAffiliation);
 
     }
+
+
 
 
     public List<Hero> getAllHeroes() throws IOException {
@@ -63,6 +80,7 @@ public class API {
 
         //Set up root, mapper reads source URL
         JsonNode root = mapper.readTree(url);
+
 //
        //Reads Tree, Maps to Constructor,
         List<Hero> heroes = StreamSupport.stream(root.spliterator(), false)

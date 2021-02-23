@@ -9,6 +9,8 @@ import HeroContainer from './HeroContainer';
 const MainContainer = () => {
 
 return (
+ 
+
     <Router>
     <>
     <NavBar/>
@@ -18,6 +20,7 @@ return (
     </Switch>
     </>
     </Router>
+  
   )
 }
 

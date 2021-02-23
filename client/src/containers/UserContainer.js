@@ -4,6 +4,7 @@ import { useState } from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import UserDetail from "../components/User/UserDetail"
 import UserForm from '../components/User/UserForm'
+import {deleteUser as delUserFromAPI} from "../helpers/requests"
 
 const UserContainer = () => {
 
@@ -32,11 +33,14 @@ const UserContainer = () => {
 
     
     const handleDelete = function(id){
-            const temp = users.map(user => user);
-            const userToDel = temp.map(user => user._id).indexOf(id);
+        delUserFromAPI(id).then(() => {
+            const temp = users.map(u => u);
+            const userToDel = temp.map(u => u._id).indexOf(id);
             temp.splice(userToDel, 1);
-            setUsers(temp);
-          }
+            setUsers(temp)
+            
+    })
+}
 
     const addUser = (user) =>{
         const temp = users.map(user => user);
@@ -46,7 +50,7 @@ const UserContainer = () => {
 
     return(
         <>
-        <UserForm addUser={addUser}/>
+        
         <Switch>
     
         <Route exact path="/users/:id" render={(props) => 
@@ -60,10 +64,17 @@ const UserContainer = () => {
             />
             }}/>
 
+
+        <Route exact path="/users" render = {() =>{
             
-        <Route render = {() =>{
-            return <UserList users={users} />
-        }} />
+            return(
+            <div>
+                <p>All Current Users</p>
+                <UserList users={users} />
+                <UserForm addUser={addUser}/>
+            </div>
+           
+            )}} />
         </Switch>
         </>
     )

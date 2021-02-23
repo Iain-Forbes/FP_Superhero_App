@@ -19,7 +19,9 @@ const UserList = ({users}) => {
 
     return(
             <ul id="component-list">
+                <div className="userList"> 
                 {userNodes}
+                </div>
             </ul>
         
            

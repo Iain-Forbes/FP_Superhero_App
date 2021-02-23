@@ -1,3 +1,8 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 .topheading{
   text-align: center;
 }
@@ -6,15 +11,14 @@
   text-align: center;
 }
 
-#nav{
-  background-color: beige;
-  overflow: hidden;
-  display: grid;
-  grid-template: 50px / 1fr 1fr 1fr 1fr;
-  align-items: center
-}
 .HanVHeader{
   text-align: center;
+}
+
+.heroComponent{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
 }
 
 .Userherolist{
@@ -29,19 +33,49 @@
   text-align: center;
 }
 
-.heroes{
-  /* display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  grid-auto-rows: minmax(100px, auto); */
+.heroCardName{
+  text-align: center;
+  font-size: 60px;
+}
+
+.heroCardStats{
+  text-align: center;
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.heroCardButtons{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.heroList{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0px;
+  grid-auto-rows: minmax(100px, auto);
+  margin: auto;
 } 
 
-#heroList{
+.userList{
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
 } 
+
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li {
+  display: block;
+ }
+
+
   
 
 @media (prefers-reduced-motion: no-preference) {

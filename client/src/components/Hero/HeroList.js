@@ -13,8 +13,10 @@ const HeroList = ({heroes}) => {
         })
 
     return(
-        <ul id="heroList">
+        <ul id="component-list">
+             <div className="heroList">
             {heroNodes}
+            </div>
         </ul>
 )
     
