@@ -13,12 +13,13 @@ const UserForm = ({addUser, heroes}) => {
     )
 
     const onChange = function(e){
-        console.log("name", e.target)
         let copiedUser = {...stateUser}
         if(e.target.name === "userName"){
             copiedUser.userName = e.target.value
-        }else{
+        }else if(e.target.name === "email"){
             copiedUser.email = e.target.value
+        }else{
+            copiedUser.heroes = e.target.value
         }
         setStateUser(copiedUser)
     }
@@ -27,6 +28,7 @@ const UserForm = ({addUser, heroes}) => {
     const onSubmit = (e) => {
         e.preventDefault();
         addUser(stateUser);
+        postUser(stateUser);
     } 
 
 
@@ -49,7 +51,7 @@ const UserForm = ({addUser, heroes}) => {
        
         <input  type="text"  placherholder="email" name="email" onChange={onChange} value={stateUser.email} required/>
 
-        <select name="Hero"  defaultValue="select-hero">
+        <select name="Hero"  onChange={onChange} defaultValue="select-hero">
         <option disabled value='select-hero'>Select a Starter Hero</option>
             {heroOptions}
         </select>  
