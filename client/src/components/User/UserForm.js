@@ -2,39 +2,45 @@ import {useState} from "react";
 import { postUser } from "../../helpers/requests";
 
 
-const UserForm = ({addUser, heroes}) => {
+const UserForm = ({createUser, heroes}) => {
 
-    const [stateUser, setStateUser] = useState (
-        {
-        userName: "",
-        email: "",
-        heroes: null,
-        }
-    )
+    const [userName, setUserName] = useState("");
+    const [email, setEmail] = useState("");
+    const [startHero, setStartHero] = useState([]);
+    
 
-    const onChange = function(e){
-        let copiedUser = {...stateUser}
-        if(e.target.name === "userName"){
-            copiedUser.userName = e.target.value
-        }else if(e.target.name === "email"){
-            copiedUser.email = e.target.value
-        }else{
-            copiedUser.heroes = e.target.value
-        }
-        setStateUser(copiedUser)
+    const handleNameChange = (ev) => setUserName(ev.target.value);
+    
+    const handleEmailChange = (ev) => setEmail(ev.target.value);
+    
+    // const handleHeroChange = (ev) => {
+    const handleHeroChange = (ev) => {
+            let value = Array.from(ev.target.selectedOptions, option => option.value);
+            setStartHero({values: value});
+
+        // const index = parseInt(ev.target.value)
+        // const selectedHero = heroes[index]
+        // let selectedHero = {...startHero}
+        // setStartHero(selectedHero);
     }
-
-
+ 
     const onSubmit = (e) => {
         e.preventDefault();
-        addUser(stateUser);
-        postUser(stateUser);
-    } 
+        postUser({
+            userName: userName,
+            email: email,
+            heroes: heroes
+        });
+        setUserName("");
+        setEmail("");
+        setStartHero([]);
+        }
+    
 
 
-    const heroOptions = heroes.map((hero) => {
+    const heroOptions = heroes.map((hero, index) => {
 
-        return <option key={hero.id} value={hero.id}>
+        return <option key={index} value={index}>
         {hero.name}
         </option>
     })
@@ -46,16 +52,17 @@ const UserForm = ({addUser, heroes}) => {
         <h3>
             Add New User
         </h3>
-        <input type="text" placherholder="userName" name="userName" onChange={onChange}  value={stateUser.userName} required/>
+        <input type="text" placherholder="userName" name="userName" onChange={handleNameChange}  value={userName} required/>
     
        
-        <input  type="text"  placherholder="email" name="email" onChange={onChange} value={stateUser.email} required/>
+        <input  type="text"  placherholder="email" name="email" onChange={handleEmailChange} value={email} required/>
 
-        <select name="Hero"  onChange={onChange} defaultValue="select-hero">
-        <option disabled value='select-hero'>Select a Starter Hero</option>
+        <select name="Hero" onChange={handleHeroChange} defaultValue="select-startHero" >
+
+        <option disabled value='select-startHero'>Select a Starter Hero</option>
             {heroOptions}
         </select>  
-        <input type="submit" vaule="save" id="save"/>
+        <input type="submit" vaule="save"/>
         </form>
         </>
     )

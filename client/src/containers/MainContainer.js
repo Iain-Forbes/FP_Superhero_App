@@ -22,7 +22,7 @@ const MainContainer = () => {
         getHeroes()
         console.log("Fetching New Heros")
     }, [])
-
+    
 return (
  
 

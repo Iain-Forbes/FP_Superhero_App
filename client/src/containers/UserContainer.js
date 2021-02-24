@@ -43,10 +43,10 @@ const UserContainer = ({heroes}) => {
     })
 }
 
-    const addUser = (user) =>{
-        const temp = users.map(user => user);
-        temp.push(user)
-        setUsers(temp)
+    const createUser = (user) => {
+        const newUser = users.map(u => u);
+        newUser.push(newUser);
+        setUsers(newUser);
     }
 
     return(
@@ -61,7 +61,7 @@ const UserContainer = ({heroes}) => {
         
         return <UserDetail user={user}
         onDelete={handleDelete}
-        addUser={addUser}
+        createUser={createUser}
             />
             }}/>
 
@@ -72,7 +72,7 @@ const UserContainer = ({heroes}) => {
             <div>
                 <p>All Current Users</p>
                 <UserList users={users} />
-                <UserForm addUser={addUser} heroes={heroes}/>
+                <UserForm createUser={createUser} heroes={heroes}/>
             </div>
 
       
