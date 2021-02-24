@@ -6,25 +6,28 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Pagination  from "../components/Pagination/Pagination"
 import UserForm from '../components/User/UserForm';
 
-const HeroContainer = () => {
+const HeroContainer = ({heroes}) => {
 
-    const [heroes, setHeroes] = useState([]);
     const [loading, setLoading] = useState(false)
     const [currentPage, setCurrentPage] = useState(1)
     const [heroesPerPage, setPerPageHeroes] = useState(48)
     const URL = 'Http://localhost:8081/heroes'
 
 
-    useEffect(()=>{
-    const fetchHeroes = () => {
-        fetch(URL)
-        .then(res => res.json())
-        .then(data => setHeroes(data))
-        setLoading(false);
-      };
+    // useEffect(()=>{
+    // const fetchHeroes = () => {
+    //     fetch(URL)
+    //     .then(res => res.json())
+    //     .then(data => setHeroes(data))
+    //     setLoading(false);
+    //   };
 
-        fetchHeroes()
-      }, [])
+    //     fetchHeroes()
+    //   }, [])
+
+    if(!heroes){
+        return null
+    }
 
       const findHeroByID =
       function(id){

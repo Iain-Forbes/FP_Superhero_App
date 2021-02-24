@@ -72,7 +72,7 @@ const UserContainer = ({heroes}) => {
             <div>
                 <p>All Current Users</p>
                 <UserList users={users} />
-                <UserForm addUser={addUser}/>
+                <UserForm addUser={addUser} heroes={heroes}/>
             </div>
 
       
